@@ -49,6 +49,9 @@ h2.contacto{
     border-left: #af4217 7px groove;
     border-right: #af4217 7px groove;
 }
+.textcontacto{
+    text-align: center;
+}
 .sobremi{
     text-align: left;
 }
