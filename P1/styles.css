@@ -4,7 +4,20 @@ body{
     color: #a52A2A
 }
 .foto{
-    width: 70px;
-    height: 300px;
+    width: 500px;
+    vertical-align: top;
+    /*height: 200px;*/
+    float: right;
+    
+}
+@font-face{
+    font-family: "CFIRobotRegular";
+    src: url(CFIRobotRegular.ttf);
+}
+h1{
+    font-family: "CFIRobotRegular";
+    font-size: 100px;
+    text-align: center;
+    color: #070707;
     
 }
