@@ -5,9 +5,9 @@ body{
 }
 .foto{
     width: 100px;
-    vertical-align: top;
+    vertical-align: left;
     /*height: 200px;*/
-    float: right;
+    float: center;
     
 }
 @font-face{
@@ -29,4 +29,30 @@ h2{
     font-family: "robotech";
     font-size:50px;
     text-align: center;
+    text-decoration: underline;
+}
+h2.contacto{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border-top: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+
+}
+.contacto{
+    text-align: left;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
+}
+.sobremi{
+    text-align: left;
+}
+.estudios{
+    text-align: center;
+    vertical-align: top;
 }
