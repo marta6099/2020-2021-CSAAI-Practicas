@@ -30,6 +30,7 @@ h2{
     font-size:50px;
     text-align: center;
     text-decoration: underline;
+    position:inherit;
 }
 h2.contacto{
     font-family: "robotech";
@@ -41,6 +42,7 @@ h2.contacto{
     text-decoration: underline #a52A2A;
     text-decoration-style: line;
     text-align: center;
+    position: inherit;
 
 }
 .contacto{
@@ -48,12 +50,30 @@ h2.contacto{
     border-bottom: #af4217 7px groove;
     border-left: #af4217 7px groove;
     border-right: #af4217 7px groove;
+    position: inherit;
 }
 .textcontacto{
     text-align: center;
+    position: inherit;
+}
+h2.sobremi{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border-top: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+    position: inherit;
 }
 .sobremi{
-    text-align: left;
+    text-align: center;
+    position: inherit;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
 }
 .estudios{
     text-align: center;
