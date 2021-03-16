@@ -102,11 +102,33 @@ ul{
     list-style: none;
     padding: 0;
     margin-left: 10px;
+    background: center;
 }
 li{
     list-style-type: "🌼";
-    background: left center;
+    background: right center;
     height: 20px;
-    padding-left: 75px;
+    padding-left: 25px;
+    border-left: 50px;
 
+}
+h2.Experiencias{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+    position: inherit; 
+
+}
+.Experiencias{
+    text-align: center;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
+    position: inherit;
 }
