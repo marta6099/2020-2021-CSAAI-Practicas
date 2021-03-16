@@ -79,3 +79,22 @@ h2.sobremi{
     text-align: center;
     vertical-align: top;
 }
+h2.estudios{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border-top: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+    position: inherit; 
+}
+.estudios{
+    text-align: left;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
+    position: inherit;
+}
