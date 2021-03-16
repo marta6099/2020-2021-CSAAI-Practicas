@@ -132,3 +132,41 @@ h2.Experiencias{
     border-right: #af4217 7px groove;
     position: inherit;
 }
+h2.Idiomas{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+    position: inherit; 
+}
+.Idiomas{
+    text-align: center;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
+    position: inherit;
+}
+h2.Otros{
+    font-family: "robotech";
+    text-shadow: 2px 2px grey;
+    border: #af4217 7px groove;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    text-decoration: underline #a52A2A;
+    text-decoration-style: line;
+    text-align: center;
+    position: inherit;
+}
+.Otros{
+    text-align: center;
+    border-bottom: #af4217 7px groove;
+    border-left: #af4217 7px groove;
+    border-right: #af4217 7px groove;
+    position: inherit;
+}
