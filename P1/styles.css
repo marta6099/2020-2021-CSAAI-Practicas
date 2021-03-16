@@ -92,9 +92,21 @@ h2.estudios{
     position: inherit; 
 }
 .estudios{
-    text-align: left;
+    text-align: center;
     border-bottom: #af4217 7px groove;
     border-left: #af4217 7px groove;
     border-right: #af4217 7px groove;
     position: inherit;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin-left: 10px;
+}
+li{
+    list-style-type: "🌼";
+    background: left center;
+    height: 20px;
+    padding-left: 75px;
+
 }
