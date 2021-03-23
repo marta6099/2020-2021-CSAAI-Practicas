@@ -1,7 +1,8 @@
 /* Documento de estilo para el curriculum de wall-e */
 body{
     background-color: #FAEBD7;
-    color: #a52A2A
+    background-image: url("fondo.jpeg");
+    color: #ffffff
 }
 .foto{
     width: 100px;
@@ -22,7 +23,7 @@ h1{
     font-family: "CFIRobotRegular";
     font-size: 100px;
     text-align: center;
-    color: #070707;
+    color: white;
 
 }
 h2{
@@ -35,11 +36,11 @@ h2{
 h2.contacto{
     font-family: "robotech";
     text-shadow: 2px 2px grey;
-    border-top: #af4217 7px groove;
+    border-top: #f7f4f3 7px groove;
     border-right: none;
     border-left: none;
     border-bottom: none;
-    text-decoration: underline #a52A2A;
+    text-decoration: underline #f9fad1;
     text-decoration-style: line;
     text-align: center;
     position: inherit;
@@ -47,10 +48,14 @@ h2.contacto{
 }
 .contacto{
     text-align: left;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
+    border-bottom: #ffffff 7px groove;
+    border-left: #ffffff 7px groove;
+    border-right: #ffffff 7px groove;
     position: inherit;
+    box-sizing: content-box;
+    padding: 0px 0px 0px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 .textcontacto{
     text-align: center;
@@ -59,11 +64,11 @@ h2.contacto{
 h2.sobremi{
     font-family: "robotech";
     text-shadow: 2px 2px grey;
-    border-top: #af4217 7px groove;
+    border-top: #ffffff 7px groove;
     border-right: none;
     border-left: none;
     border-bottom: none;
-    text-decoration: underline #a52A2A;
+    text-decoration: underline #ffffff;
     text-decoration-style: line;
     text-align: center;
     position: inherit;
@@ -71,9 +76,9 @@ h2.sobremi{
 .sobremi{
     text-align: center;
     position: inherit;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
+    border-bottom: #ffffff 7px groove;
+    border-left: #ffffff 7px groove;
+    border-right: #ffffff 7px groove;
 }
 .estudios{
     text-align: center;
@@ -82,20 +87,20 @@ h2.sobremi{
 h2.estudios{
     font-family: "robotech";
     text-shadow: 2px 2px grey;
-    border-top: #af4217 7px groove;
+    border-top: #ffffff 7px groove;
     border-right: none;
     border-left: none;
     border-bottom: none;
-    text-decoration: underline #a52A2A;
+    text-decoration: underline #ffffff;
     text-decoration-style: line;
     text-align: center;
     position: inherit; 
 }
 .estudios{
     text-align: center;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
+    border-bottom: #ffffff 7px groove;
+    border-left: #ffffff 7px groove;
+    border-right: #ffffff 7px groove;
     position: inherit;
 }
 ul{
@@ -115,11 +120,11 @@ li{
 h2.Experiencias{
     font-family: "robotech";
     text-shadow: 2px 2px grey;
-    border: #af4217 7px groove;
+    border: #ffffff 7px groove;
     border-right: none;
     border-left: none;
     border-bottom: none;
-    text-decoration: underline #a52A2A;
+    text-decoration: underline #ffffff;
     text-decoration-style: line;
     text-align: center;
     position: inherit; 
@@ -127,49 +132,81 @@ h2.Experiencias{
 }
 .Experiencias{
     text-align: center;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
+    border-bottom: #ffffff 7px groove;
+    border-left: #ffffff 7px groove;
+    border-right: #ffffff 7px groove;
     position: inherit;
 }
 h2.Idiomas{
     font-family: "robotech";
     text-shadow: 2px 2px grey;
-    border: #af4217 7px groove;
+    border: #ffffff 7px groove;
     border-right: none;
     border-left: none;
     border-bottom: none;
-    text-decoration: underline #a52A2A;
+    text-decoration: underline #ffffff;
     text-decoration-style: line;
     text-align: center;
     position: inherit; 
 }
 .Idiomas{
     text-align: center;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
+    margin-right: 30px;
     position: inherit;
 }
 h2.Otros{
-    font-family: "robotech";
-    text-shadow: 2px 2px grey;
-    border: #af4217 7px groove;
-    border-right: none;
-    border-left: none;
-    border-bottom: none;
-    text-decoration: underline #a52A2A;
-    text-decoration-style: line;
     text-align: center;
     position: inherit;
 }
+ul.Otros{
+    margin-left: 1cm ;
+}
+
 .Otros{
     text-align: center;
-    border-bottom: #af4217 7px groove;
-    border-left: #af4217 7px groove;
-    border-right: #af4217 7px groove;
     position: inherit;
 }
 div.contacto{
     align-content: left;
+    margin-right: 0px;
+    margin-left: -180px;
+    margin-top: 150px;
+    float:left;
+    width: 25%;
+}
+div.foto{ 
+    align-content: right;
+    float: left;
+    width: 170px;
+    text-align: justify;
+}
+div.sobremi{
+    float: left;
+    width: 25%;
+    text-align: justify;
+    margin-top: 350px;
+    margin-left: -480px;
+    margin-right: 20px;
+}
+div.estudios{
+    float: left;
+    width: 65%;
+    text-align: justify;
+}
+div.Experiencias{
+    float: left;
+    align-content: right;
+    width: 65%;
+    text-align: justify;
+}
+div.Idiomas{
+    float: left;
+    width: 25%;
+    text-align: justify;
+}
+div.Otros{
+    float: left;
+    width: 25%;
+    margin-left: 270px;
+    text-align: justify;
 }
