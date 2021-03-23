@@ -170,3 +170,6 @@ h2.Otros{
     border-right: #af4217 7px groove;
     position: inherit;
 }
+div.contacto{
+    align-content: left;
+}
