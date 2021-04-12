@@ -25,6 +25,17 @@ function main(){
 
     var CALCULADORA = {
         //Aqui tenemos las operaciones qu eva a realizar la calculadora.
-        
+        display_ini: " ",
+        numero: "",
+        //Debemos crear un array para que se guarden los numeros introduccidos y las operaciones
+        array_calcoo: [],
+
+        //Crear funcion para borrar un número o una operacion.
+        ACfuncion: function(){
+            this.array_calcoo = [];
+            this.display_ini = "";
+            gui.display.innerHTML = 0;
+            this.numero = "";
+        }
     }
 }
