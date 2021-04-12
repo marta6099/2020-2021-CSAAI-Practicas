@@ -36,6 +36,26 @@ function main(){
             this.display_ini = "";
             gui.display.innerHTML = 0;
             this.numero = "";
-        }
+        },
+        //Funcion DEL, para borrar todo lo que hay en el display.
+        DELfuncion:function(){
+            if (this.numero != ""){
+              var length = this.numero.length;
+              this.numero = this.numero.slice(0, length-1);
+              var length = this.display_ini.length;
+              this.display_ini = this.display_ini.slice(0, length-1);
+      
+            }else{
+              this.array_calcoo.pop();
+              var length = this.operaciondisplay.length;
+              this.display_ini = this.display_ini.slice(0, length-1);
+            }
+            //Si se borra todo el número el display se pone a 0
+            if (this.display_ini != ""){
+              gui.display.innerHTML = this.display_ini;
+            }else{
+              gui.display.innerHTML = 0;
+            }
+          },
     }
 }
