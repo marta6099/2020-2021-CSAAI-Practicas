@@ -59,3 +59,77 @@ function main(){
           },
     }
 }
+
+
+console.log("CALCULADORA en javascript");
+
+gui.boton1.onclick = () => {
+  calculadora.addnumber(1);
+}
+
+gui.boton2.onclick = () => {
+  calculadora.addnumber(2);
+}
+
+gui.boton3.onclick = () => {
+  calculadora.addnumber(3);
+}
+
+gui.boton4.onclick = () => {
+  calculadora.addnumber(4);
+}
+
+gui.boton5.onclick = () => {
+  calculadora.addnumber(5);
+}
+
+gui.boton6.onclick = () => {
+  calculadora.addnumber(6);
+}
+
+gui.boton7.onclick = () => {
+  calculadora.addnumber(7);
+}
+
+gui.boton8.onclick = () => {
+  calculadora.addnumber(8);
+}
+
+gui.boton9.onclick = () => {
+  calculadora.addnumber(9);
+}
+
+gui.boton0.onclick = () => {
+  calculadora.addnumber(0);
+}
+
+gui.suma.onclick = () => {
+  calculadora.addoper("+");
+}
+
+gui.multiplicacion.onclick = () => {
+  calculadora.addoper("x");
+}
+
+gui.division.onclick = () => {
+  calculadora.addoper("/");
+}
+
+gui.resta.onclick = () => {
+  calculadora.addoper("-");
+}
+
+gui.AC.onclick = () => {
+  calculadora.ACfunction();
+}
+
+gui.DEL.onclick = () => {
+  calculadora.DELfunction();
+}
+
+gui.resultado.onclick = () => {
+
+  calculadora.addoper("=");
+  calculadora.resultadofinal();
+}
+
