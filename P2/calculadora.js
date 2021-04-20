@@ -57,8 +57,77 @@ function main(){
               gui.display.innerHTML = 0;
             }
           },
-    }
-}
+          resultadofinal: function(){
+
+            var resultado_final = 0.0;
+      
+            var multposition = this.array_oper.indexOf("x");
+            resulmult = null;
+            //si no está "x" devuelve un -1, y tiene que haber un numero antes del operador
+            //por ello la condicion será extrictamente mayor que 0
+            while (multposition>0){
+              resulmult = parseInt(this.array_oper[multposition-1]) * parseInt(this.array_oper[multposition+1]);
+              this.array_oper[multposition] = resulmult;
+      
+              //elimino las posiciones del array de los numeros que se han utilizado
+              //para realizar la multiplicación
+              this.array_oper.splice(multposition-1, 1);
+              this.array_oper.splice(multposition, 1);
+              var multposition = this.array_oper.indexOf("x");
+            }
+            if (resulmult!=null){
+              resultado_final = resulmult;
+            }
+      
+            var divposition = this.array_oper.indexOf("/");
+            resuldiv = null;
+            while (divposition>0){
+              resuldiv = parseInt(this.array_oper[divposition-1]) / parseInt(this.array_oper[divposition+1]);
+              this.array_oper[divposition] = resuldiv;
+              //elimino las posiciones del array de los numeros que se han utilizado
+              //para realizar la división
+              this.array_oper.splice(divposition-1, 1);
+              this.array_oper.splice(divposition, 1);
+              var divposition = this.array_oper.indexOf("/");
+            }
+            if (resuldiv!=null){
+              resultado_final = resuldiv;
+            }
+      
+            var sumaposition = this.array_oper.indexOf("+");
+            var resultsuma = null;
+            while (sumaposition>0){
+              resultsuma = parseInt(this.array_oper[sumaposition-1]) + parseInt(this.array_oper[sumaposition+1]);
+              this.array_oper[sumaposition] = resultsuma;
+              //elimino las posiciones del array de los numeros que se han utilizado
+              //para realizar la suma
+              this.array_oper.splice(sumaposition-1, 1);
+              this.array_oper.splice(sumaposition, 1);
+              var sumaposition = this.array_oper.indexOf("+");
+            }
+            if (resultsuma!=null){
+              resultado_final = resultsuma;
+            }
+      
+            var restaposition = this.array_oper.indexOf("-");
+            var resultresta = null;
+            while (restaposition>0){
+              resultresta = parseInt(this.array_oper[restaposition-1]) - parseInt(this.array_oper[restaposition+1]);
+              this.array_oper[restaposition] = resultresta;
+              //elimino las posiciones del array de los numeros que se han utilizado
+              //para realizar la resta
+              this.array_oper.splice(restaposition-1, 1);
+              this.array_oper.splice(restaposition, 1);
+              var restaposition = this.array_oper.indexOf("-");
+            }
+            if (resultresta!=null){
+              resultado_final = resultresta;
+            }
+            gui.display.innerHTML = resultado_final;
+          }
+        }
+    
+
 
 
 console.log("CALCULADORA en javascript");
@@ -119,7 +188,7 @@ gui.resta.onclick = () => {
   calculadora.addoper("-");
 }
 
-gui.AC.onclick = () => {
+gui.reiniciar.onclick = () => {
   calculadora.ACfunction();
 }
 
@@ -132,4 +201,4 @@ gui.resultado.onclick = () => {
   calculadora.addoper("=");
   calculadora.resultadofinal();
 }
-
+}
