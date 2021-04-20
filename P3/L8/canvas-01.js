@@ -7,33 +7,14 @@ var ctx = canvas.getContext("2d");
 canvas.width = 480;
 canvas.height = 320;
 
-//Score
-var score = 0;
-function drawScore() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Score: "+score, 8, 20);
-}
-
-
-//Vidas
-var vidas = 3;
-function drawVidas() {
-    ctx.font = "16px Arial";
-    ctx.fillStyle = "#0095DD";
-    ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
-}
-drawScore();
-drawVidas();
-
 //Ladrillos
-var brickRowCount = 5; // cuantos ladrillos de ancho
-var brickColumnCount = 3; //cuants ladrillos de largo
-var brickWidth = 75;
-var brickHeight = 20;
-var brickPadding = 10;
-var brickOffsetTop = 100;
-var brickOffsetLeft = 30;
+var brickRowCount = 4; // cuantas filas de ladrillos
+var brickColumnCount = 7; //cuantas columnas de ladrillos
+var brickWidth = 55; //Ancho del ladrillo
+var brickHeight = 20; //alto del ladrillos
+var brickPadding = 1; //huecos entre ladrillos
+var brickOffsetTop = 50; //margen superior
+var brickOffsetLeft = 30; //margen inferior
 
 var bricks = [];
 for(c=0; c<brickColumnCount; c++) {
@@ -51,12 +32,30 @@ function drawBricks() {
             bricks[c][r].x = 0;
             bricks[c][r].y = 0;
             ctx.beginPath();
-            ctx.rect(0, 0, brickWidth, brickHeight);
+            ctx.rect(brickX, brickY, brickWidth, brickHeight);
             ctx.fillStyle = "#804000";
             ctx.fill();
             ctx.closePath();
         }
     }
 }
+//Score
+var score = 0;
+function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: "+score, 8, 20);
+}
+
+
+//Vidas
+var vidas = 3;
+function drawVidas() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
+}
 
 drawBricks();
+drawScore();
+drawVidas();
