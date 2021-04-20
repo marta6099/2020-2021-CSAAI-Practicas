@@ -7,6 +7,35 @@ var ctx = canvas.getContext("2d");
 canvas.width = 480;
 canvas.height = 320;
 
+//Definimos una bola
+ctx.beginPath();
+    //-- Dibujar un circulo: coordenadas x,y del centro
+    //-- Radio, Angulo inicial y angulo final
+    ctx.arc(250, 250, 10, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 3;
+    ctx.fillStyle = 'white';
+
+    //-- Dibujar el trazo
+    ctx.stroke()
+
+    //-- Dibujar el relleno
+    ctx.fill()
+    
+ctx.closePath()
+
+//Definimos una raqueta
+var paddleHeight = 10;
+var paddleWidth = 75;
+var paddleX = (canvas.width-paddleWidth)/2;
+
+function drawPaddle() {
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fill();
+    ctx.closePath();
+}
 //Ladrillos
 var brickRowCount = 4; // cuantas filas de ladrillos
 var brickColumnCount = 7; //cuantas columnas de ladrillos
@@ -56,6 +85,7 @@ function drawVidas() {
     ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
 }
 
+drawPaddle();
 drawBricks();
 drawScore();
 drawVidas();
