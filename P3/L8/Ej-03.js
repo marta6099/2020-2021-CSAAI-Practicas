@@ -1,12 +1,21 @@
 console.log("Ejecutando JS...");
 
+function create(){
 const canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
+}
 
 //-- Definir el tamaño del canvas
 canvas.width = 480;
 canvas.height = 320;
 
+function update() {
+    game.physics.arcade.collide(ball, paddle, ballHitPaddle);
+    game.physics.arcade.collide(ball, bricks, ballHitBrick);
+    if(playing) {
+        paddle.x = game.input.x || game.world.width*0.5;
+    }
+}
 //Definimos una bola
 ctx.beginPath();
     //-- Dibujar un circulo: coordenadas x,y del centro
@@ -85,27 +94,38 @@ function drawVidas() {
     ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
 }
 
-drawPaddle();
-drawBricks();
+var playing = false;
+var startButton;
+game.load.spritesheet('button', 'button.png', 120, 40);
+startButton = game.add.button(game.world.width*0.5, game.world.height*0.5, 'button', startGame, this, 1, 0, 2);
+startButton.anchor.set(0.5);
+
+function startGame() {
+    startButton.destroy();
+    ball.body.velocity.set(150, -150);
+    playing = true;
+}
+
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    startGame();
+    
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if(y + dy < ballRadius) {
+        dy = -dy;
+    }
+    
+    x += dx;
+    y += dy;
+}
 drawScore();
 drawVidas();
+setInterval(draw, 10);
 
-//-- Botón de arranque
-const start = document.getElementById("start");
 
-start.onclick = () => {
-  raqD.init();
-  raqI.init();
-  raqCPU.init();
-
-  if (estado == ESTADO.MENU1){
-    raqCPU.v = raqCPU.v_ini;
-    sonido_start.currentTime = 0;
-    sonido_start.play();
-    marcador_dcha = 0;
-    marcador_izq = 0;
-    estado = ESTADO.SAQUE1;
-    console.log("SAQUE!");
-    canvas.focus();
-  }
-}
