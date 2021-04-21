@@ -7,20 +7,22 @@ var ctx = canvas.getContext("2d");
 canvas.width = 480;
 canvas.height = 320;
 
-var ballRadius = 10;
-var x = canvas.width/2;
-var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+//Definimos una bola
+ctx.beginPath();
+    //-- Dibujar un circulo: coordenadas x,y del centro
+    //-- Radio, Angulo inicial y angulo final
+    ctx.arc(250, 250, 10, 0, 2 * Math.PI);
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 3;
+    ctx.fillStyle = 'white';
 
-function drawBall() {
-    ctx.beginPath();
-    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
-    ctx.fillStyle = "#000000";
-    ctx.fill();
-    ctx.closePath();
-}
+    //-- Dibujar el trazo
+    ctx.stroke()
 
+    //-- Dibujar el relleno
+    ctx.fill()
+    
+ctx.closePath()
 
 //Definimos una raqueta
 var paddleHeight = 10;
@@ -82,24 +84,28 @@ function drawVidas() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
 }
-function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawBricks();
-    drawBall();
-    drawPaddle();
-    
-    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
-        dx = -dx;
-    }
-    if(y + dy < ballRadius) {
-        dy = -dy;
-    }
-    
-    x += dx;
-    y += dy;
-}
 
-
+drawPaddle();
+drawBricks();
 drawScore();
 drawVidas();
-setInterval(draw, 10);
+
+//-- Botón de arranque
+const start = document.getElementById("start");
+
+start.onclick = () => {
+  raqD.init();
+  raqI.init();
+  raqCPU.init();
+
+  if (estado == ESTADO.MENU1){
+    raqCPU.v = raqCPU.v_ini;
+    sonido_start.currentTime = 0;
+    sonido_start.play();
+    marcador_dcha = 0;
+    marcador_izq = 0;
+    estado = ESTADO.SAQUE1;
+    console.log("SAQUE!");
+    canvas.focus();
+  }
+}
