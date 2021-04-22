@@ -106,13 +106,7 @@ function main(){
       }
 
       //Operaciones
-      operaciones.AC.onclick = () => {
-        var operation = document.getElementById("0").value
-        op_elements.operation_arr.push(op_elements.num);
-        op_elements.operation_arr.push(operation)
-        display.update(operation);
-        op_elements.num = "";
-      }
+    
       operaciones.suma.onclick = () => {
         var operation = document.getElementById("+").value;
         op_elements.operation_arr.push(op_elements.num);
@@ -152,34 +146,66 @@ function main(){
         display.update(valor)
         op_elements.num += valor
       }
+
       operaciones.botonera.onclick = () => {
         console.log("Igual");
         op_elements.operation_arr.push(op_elements.num);
         display.disp = "";
-        op_elements.num = "";
+        op_elements.num = ""
     
         operation = op_elements.operation_arr[1];
         op1 = parseFloat(op_elements.operation_arr[0]);
         op2 = parseFloat(op_elements.operation_arr[2]);
-        //Debemos crear una funcion para borrar el numero anterior
-        
+      
+        //Para limpiar
+        function limpiar(){
+          resultado.textContent = "";
+        }
+        function resetear(){
+          resultado.textContent = "";
+          operandoa = 0;
+          operandob = 0;
+          operacion = "";
+        }
+
+        operaciones.AC.onclick = (e) => {
+          var valor = document.getElementById("0").value;
+          display.update(valor);
+          resultado="0"
+          resetear()
+
+        }
+        //
+
     
         if (operation == "+") {
           resultado = op1 + op2;
+          if(operation == "AC"){
+            resultado="0"
+          }
         } else if (operation == "-") {
           resultado = op1 - op2;
+          if(operation == "AC"){
+            resultado="0"
+          }
         } else if (operation == "*") {
           resultado = op1 * op2;
+          if(operation == "AC"){
+            resultado="0"
+          }
         } else if (operation == "/") {
           if (op2 == 0) {
             resultado = "Math error"
           } else {
             resultado = op1 / op2;
           }
+          if(operation == "AC"){
+            resultado="0"
+          }
         }else if (operation == "AC") {
-          resultado = 0;
+          resultado = "0";
         }
-        
+      
     
         console.log(resultado)
         display.update(resultado);
