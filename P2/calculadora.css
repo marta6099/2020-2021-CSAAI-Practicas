@@ -1,0 +1,46 @@
+body {
+    background-image: url("fondo2.jpg");
+  }
+  
+  #tamaño {
+    width: 550px;
+    height: 550px;
+    border:  none;
+    padding:  10px 10px 3px 15px;
+    margin: 0 auto;
+    margin-top: 100px;
+    overflow: hidden;
+  }
+  
+  #display {
+    width: 475px;
+    height: 45px;
+    background-color: white;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-size: 40px;
+    font-family: Courier New;
+    padding: 10px;
+    overflow: hidden;
+  }
+  
+  .boton {
+    width: 120px;
+    height: 100px;
+    margin-bottom: 5px;
+    margin-right: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    font-family: Courier New;
+    font-size: 30px;
+    border: none;
+  }
+  
+  .Filas {
+    margin-left: 20px;
+    margin-right: 15px;
+  }
