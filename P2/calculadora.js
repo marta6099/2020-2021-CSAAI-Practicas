@@ -40,6 +40,7 @@ function main(){
           numeros.display.innerHTML = this.disp;
         }
       }
+  
 
     //Boton valor 1
       numeros.boton1.onclick = () => {
@@ -105,6 +106,13 @@ function main(){
       }
 
       //Operaciones
+      operaciones.AC.onclick = () => {
+        var operation = document.getElementById("0").value
+        op_elements.operation_arr.push(op_elements.num);
+        op_elements.operation_arr.push(operation)
+        display.update(operation);
+        op_elements.num = "";
+      }
       operaciones.suma.onclick = () => {
         var operation = document.getElementById("+").value;
         op_elements.operation_arr.push(op_elements.num);
@@ -153,6 +161,8 @@ function main(){
         operation = op_elements.operation_arr[1];
         op1 = parseFloat(op_elements.operation_arr[0]);
         op2 = parseFloat(op_elements.operation_arr[2]);
+        //Debemos crear una funcion para borrar el numero anterior
+        
     
         if (operation == "+") {
           resultado = op1 + op2;
@@ -166,7 +176,10 @@ function main(){
           } else {
             resultado = op1 / op2;
           }
+        }else if (operation == "AC") {
+          resultado = 0;
         }
+        
     
         console.log(resultado)
         display.update(resultado);
