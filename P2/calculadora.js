@@ -169,10 +169,11 @@ function main(){
         }
 
         operaciones.AC.onclick = (e) => {
-          var valor = document.getElementById("0").value;
-          display.update(valor);
-          resultado="0"
-          resetear()
+          console.log("AC");
+          resultado.textContent = "";
+          operador = "";
+          operandoA = "0";
+          operandoB = "";
 
         }
         //
