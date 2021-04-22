@@ -3,38 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="calculadora.css">
+
     <script src="calculadora.js"></script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
   </head>
 
-  <body onload ="main();">
-
-    <p id ="display">0</p>
-
-    <div class = "calcoo">
-      <div id ="numeros">
-        <button class = "button" id ="boton7">7</button>
-        <button class = "button" id ="boton8">8</button>
-        <button class = "button" id ="boton9">9</button>
-        <button class = "button" id ="boton4">4</button>
-        <button class = "button" id ="boton5">5</button>
-        <button class = "button" id ="boton6">6</button>
-        <button class = "button" id ="boton1">1</button>
-        <button class = "button" id ="boton2">2</button>
-        <button class = "button" id ="boton3">3</button>
-        <button class = "button" id ="boton0">0</button>
+  <body onload="main();">
+    <div id="mounting">
+      <div id="display">
+        <p id="display" value=""></p>
       </div>
-      <div id = "operaciones">
-        <button class = "button1" id ="suma">+</button>
-        <button class = "button1" id ="resta">-</button>
-        <button class = "button1" id ="multiplicacion">x</button>
-        <button class = "button1" id ="division">/</button>
-        <button class = "button1" id ="resultado">=</button>
-        <button class = "button1" id ="borrar">DEL</button>
-        <button class = "button1" id ="reiniciar">AC</button>
+
+
+    <div class="Filas">
+      <input type="Button" id="7" value="7" class="boton">
+      <input type="Button" id="8" value="8" class="boton">
+      <input type="Button" id="9" value="9" class="boton">
+      <input type="Button" id="-" value="-" class="boton">
     </div>
 
+    <div class="Filas">
+      <input type="Button" id="4" value="4" class="boton">
+      <input type="Button" id="5" value="5" class="boton">
+      <input type="Button" id="6" value="6" class="boton">
+      <input type="Button" id="*" value="*" class="boton">
+    </div>
+
+    <div class="Filas">
+      <input type="Button" id="1" value="1" class="boton">
+      <input type="Button" id="2" value="2" class="boton">
+      <input type="Button" id="3" value="3" class="boton">
+      <input type="Button" id="/" value="/" class="boton">
+    </div>
+
+    <div class="Filas">
+      <input type="Button" id="." value="." class="boton">
+      <input type="Button" id="0" value="0" class="boton">
+      <input type="Button" id="+" value="+" class="boton">
+      <input type="Button" id="=" value="=" class="boton">
+    </div>
+
+  </div>
   </body>
 </html>
