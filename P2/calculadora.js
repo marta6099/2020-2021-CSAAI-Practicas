@@ -29,6 +29,7 @@ function main(){
           division: document.getElementById("/"),
           botonera: document.getElementById("="),
           decimal: document.getElementById("."),
+          tanto : document.getElementById("%"),
           AC: document.getElementById('AC'),
           DEL: document.getElementById('DEL'),
       }
@@ -146,6 +147,14 @@ function main(){
         display.update(valor)
         op_elements.num += valor
       }
+      operaciones.tanto.onclick = () => {
+        console.log("tantoporciento");
+        var valor = document.getElementById("%").value;
+        op_elements.operation_arr.push(op_elements.num);
+        op_elements.operation_arr.push(operation)
+        display.update(valor)
+        op_elements.num = "";
+      } 
 
       operaciones.botonera.onclick = () => {
         console.log("Igual");
@@ -163,17 +172,26 @@ function main(){
         }
 
         function resetear(){
-          resultado.textContent=""
-          resultado = ""
-          display.update(resultado);
+          document.getElementById("display").innerHTML = "0";
 
         }
-
-        operaciones.AC.onclick = (e) => {
-          console.log("AC");
-          resetear();
-          
-
+        function removeZero(){
+          var value = document.getElementById("display").innerHTML;
+          if (value == "0") {
+            value= " "
+            document.getElementById("display").innerHTML = value
+          }
+        }
+        operaciones.AC.onclick = () => {
+          console.log("ac");
+          var valor =  document.getElementById("0").value;
+          document.getElementById("display").innerHTML = valor
+          if (valor != 0){
+          value = " "
+          removeZero()
+          document.getElementById("display").innerHTML+=value;
+          display.update(value)
+          }
         }
         //
 
@@ -194,8 +212,10 @@ function main(){
             resultado = op1 / op2;
           }
         
-        }
-        if (operation == "AC") {
+        } else if(operation == "%") {
+          resultado = op1 / 100;
+
+        } if (operation == "AC") {
           display.update("0"); 
           }
         
