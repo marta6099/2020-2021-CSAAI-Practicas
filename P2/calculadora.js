@@ -161,19 +161,18 @@ function main(){
         function limpiar(){
           resultado.textContent = "";
         }
+
         function resetear(){
-          resultado.textContent = "";
-          operandoa = 0;
-          operandob = 0;
-          operacion = "";
+          resultado.textContent=""
+          resultado = ""
+          display.update(resultado);
+
         }
 
         operaciones.AC.onclick = (e) => {
           console.log("AC");
-          resultado.textContent = "";
-          operador = "";
-          operandoA = "0";
-          operandoB = "";
+          resetear();
+          
 
         }
         //
@@ -181,31 +180,25 @@ function main(){
     
         if (operation == "+") {
           resultado = op1 + op2;
-          if(operation == "AC"){
-            resultado="0"
-          }
+
         } else if (operation == "-") {
           resultado = op1 - op2;
-          if(operation == "AC"){
-            resultado="0"
-          }
+
         } else if (operation == "*") {
           resultado = op1 * op2;
-          if(operation == "AC"){
-            resultado="0"
-          }
+        
         } else if (operation == "/") {
           if (op2 == 0) {
             resultado = "Math error"
           } else {
             resultado = op1 / op2;
           }
-          if(operation == "AC"){
-            resultado="0"
-          }
-        }else if (operation == "AC") {
-          resultado = "0";
+        
         }
+        if (operation == "AC") {
+          display.update("0"); 
+          }
+        
       
     
         console.log(resultado)
