@@ -43,7 +43,7 @@ function main(){
         }
       }
   //Estados de la calculadora
-  const ESTADO = {
+ /*  const ESTADO = {
     INIT: 0,
     OPE1: 1,
     OPE: 2,
@@ -103,7 +103,7 @@ function main(){
   AC.onclick = () => {
     display.innerHTML = "0";
     estado = ESTADO.INIT
-  }
+  } */
 
     //Boton valor 1
       numeros.boton1.onclick = () => {
