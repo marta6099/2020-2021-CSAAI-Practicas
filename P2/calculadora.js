@@ -3,7 +3,7 @@
 function main(){
   console.log("Que comiencen los juegos de JS");
  
-        var op_elements = {
+       var op_elements = {
         num: "",
         operation_arr: [],
         }
@@ -30,9 +30,10 @@ function main(){
           botonera: document.getElementById("="),
           decimal: document.getElementById("."),
           tanto : document.getElementById("%"),
-          AC: document.getElementById('AC'),
+          
           DEL: document.getElementById('DEL'),
       }
+      var AC= document.getElementById('AC');
     //Para el display
       var display = {
         disp: "",
@@ -41,7 +42,68 @@ function main(){
           numeros.display.innerHTML = this.disp;
         }
       }
-  
+  //Estados de la calculadora
+  const ESTADO = {
+    INIT: 0,
+    OPE1: 1,
+    OPE: 2,
+    OPE2: 3,
+    OPE3: 4,
+  }
+  var estado = ESTADO.INIT;
+  function number(num){
+    if (estado == ESTADO.INIT){
+      display.innerHTML = num;
+      estado = ESTADO.OPE1;
+    } else if(estado == ESTADO.OPE1){
+      display.innerHTML += num;
+      estado = ESTADO.OPE1;
+    } else if ( estado == ESTADO.OPE){
+      display.innerHTML += num;
+      estado = ESTADO.OPE3;
+    } else if(estado == ESTADO.OPE2 || estado == ESTADO.OPE3){
+      display.innerHTML += num;
+      estado = ESTADO.OPE3;
+    }
+  }
+
+  function operation (op){
+    if (estado == ESTADO.OPE1){
+      display.innerHTML += op;
+      estado = ESTADO.OPE;
+    }else if(estado == ESTADO.OPE2){
+      display.innerHTML += op;
+      estado = ESTADO.OPE3;
+    }else if (estado == ESTADO.OPE3){
+      display.innerHTML += op;
+      estado = ESTADO.OPE3;
+    }
+  }
+  function resultado(){
+    if( estado == ESTADO.OP3 || estado == ESTADO.OP2){
+      display.innerHTML = eval(display.innerHTML);
+      estado = ESTADO.OPE1;
+    }
+  }
+  digitos = document.getElementsByClassName("digitos")
+  for ( i=0; i < digitos.length; i++){
+    op[i].onclick = (ev) => {
+      operation(ev.target.value)
+    }
+  }
+  op = document.getElementsByClassName("operador")
+  for ( i=0; i < op.length; i++){
+    op[i].onclick = (ev) => {
+      operation(ev.target.value)
+    }
+  }
+  igual.onclick = () => {
+    resultado();
+  }
+  AC.onclick = () => {
+    display.innerHTML = "0";
+    estado = ESTADO.INIT
+  }
 
     //Boton valor 1
       numeros.boton1.onclick = () => {
@@ -165,36 +227,6 @@ function main(){
         operation = op_elements.operation_arr[1];
         op1 = parseFloat(op_elements.operation_arr[0]);
         op2 = parseFloat(op_elements.operation_arr[2]);
-      
-        //Para limpiar
-        function limpiar(){
-          resultado.textContent = "";
-        }
-
-        function resetear(){
-          document.getElementById("display").innerHTML = "0";
-
-        }
-        function removeZero(){
-          var value = document.getElementById("display").innerHTML;
-          if (value == "0") {
-            value= " "
-            document.getElementById("display").innerHTML = value
-          }
-        }
-        operaciones.AC.onclick = () => {
-          console.log("ac");
-          var valor =  document.getElementById("0").value;
-          document.getElementById("display").innerHTML = valor
-          if (valor != 0){
-          value = " "
-          removeZero()
-          document.getElementById("display").innerHTML+=value;
-          display.update(value)
-          }
-        }
-        //
-
     
         if (operation == "+") {
           resultado = op1 + op2;
@@ -216,7 +248,8 @@ function main(){
           resultado = op1 / 100;
 
         } if (operation == "AC") {
-          display.update("0"); 
+          resetear();
+          resultado= "0"; 
           }
         
       
