@@ -147,10 +147,19 @@ function draw() {
             dy = -dy;
         }
         else {
-            alert("GAME OVER");
-            document.location.reload();
+            if(!lives){
+                alert("GAME OVER");
+                document.location.reload();
+        }
+        else{
+            x = canvas.width/2;
+            y = canvas.height-30;
+            dx = 3;
+            dy = -3;
+            paddleX = (canvas.width-paddleWidth)/2;
         }
     }
+}
     
     if(rightPressed && paddleX < canvas.width-paddleWidth) {
         paddleX += 7;
@@ -161,9 +170,7 @@ function draw() {
     
     x += dx;
     y += dy;
+    requestAnimationFrame(draw);
 }
-
-
-drawScore();
-drawVidas();
-setInterval(draw, 10);
+draw();
+//setInterval(draw, 10);
