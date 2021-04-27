@@ -4,10 +4,17 @@ const canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 //-- Definir el tamaño del canvas
-canvas.width = 480;
-canvas.height = 320;
+canvas.width = 580;
+canvas.height = 520;
 
-//Definimos una bola
+//
+var dx = 2;
+var dy = -2;
+var ballRadius = 10;
+var x = canvas.width/2;
+var y = canvas.height-30;
+
+/* //Definimos una bola
 ctx.beginPath();
     //-- Dibujar un circulo: coordenadas x,y del centro
     //-- Radio, Angulo inicial y angulo final
@@ -22,9 +29,30 @@ ctx.beginPath();
     //-- Dibujar el relleno
     ctx.fill()
     
-ctx.closePath()
+ctx.closePath() */
+
+//Ladrillos
+var brickRowCount = 5; // cuantas filas de ladrillos
+var brickColumnCount = 9; //cuantas columnas de ladrillos
+var brickWidth = 55; //Ancho del ladrillo
+var brickHeight = 20; //alto del ladrillos
+var brickPadding = 1; //huecos entre ladrillos
+var brickOffsetTop = 50; //margen superior
+var brickOffsetLeft = 30; //margen inferior
+
+var bricks = [];
+for(c=0; c<brickColumnCount; c++) {
+    bricks[c] = [];
+    for(r=0; r<brickRowCount; r++) {
+        bricks[c][r] = { x: 0, y: 0 };
+    }
+}
 
 //Funcion para mover la raqueta con teclado
+var rightPressed = false;
+var leftPressed = false;
+document.addEventListener("keydown", keyDownHandler, false);
+document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
     if(e.keyCode == 39) {
         rightPressed = true;
@@ -41,7 +69,15 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+//Definimos la bola
 
+function drawBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.closePath();
+}
 
 //Definimos una raqueta
 var paddleHeight = 10;
@@ -54,22 +90,6 @@ function drawPaddle() {
     ctx.fillStyle = "#FFFFFF";
     ctx.fill();
     ctx.closePath();
-}
-//Ladrillos
-var brickRowCount = 4; // cuantas filas de ladrillos
-var brickColumnCount = 7; //cuantas columnas de ladrillos
-var brickWidth = 55; //Ancho del ladrillo
-var brickHeight = 20; //alto del ladrillos
-var brickPadding = 1; //huecos entre ladrillos
-var brickOffsetTop = 50; //margen superior
-var brickOffsetLeft = 30; //margen inferior
-
-var bricks = [];
-for(c=0; c<brickColumnCount; c++) {
-    bricks[c] = [];
-    for(r=0; r<brickRowCount; r++) {
-        bricks[c][r] = { x: 0, y: 0 };
-    }
 }
 
 function drawBricks() {
@@ -84,9 +104,10 @@ function drawBricks() {
             ctx.fillStyle = "#804000";
             ctx.fill();
             ctx.closePath();
+            }
         }
     }
-}
+
 //Score
 var score = 0;
 function drawScore() {
@@ -94,7 +115,6 @@ function drawScore() {
     ctx.fillStyle = "#0095DD";
     ctx.fillText("Score: "+score, 8, 20);
 }
-
 
 //Vidas
 var vidas = 3;
@@ -104,7 +124,49 @@ function drawVidas() {
     ctx.fillText("Vidas: "+vidas, canvas.width-65, 20);
 }
 
-drawPaddle();
-drawBricks();
-drawScore();
-drawVidas();
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBricks();
+    drawBall();
+    drawPaddle();
+    drawScore();
+    drawLives();
+    
+    if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
+        dx = -dx;
+    }
+    if(y + dy < ballRadius) {
+        dy = -dy;
+    }
+    else if(y + dy > canvas.height-ballRadius) {
+        if(x > paddleX && x < paddleX + paddleWidth) {
+            dy = -dy;
+        }
+        else {
+            lives--;
+            if(!lives) {
+                alert("GAME OVER");
+                document.location.reload();
+            }
+            else {
+                x = canvas.width/2;
+                y = canvas.height-30;
+                dx = 3;
+                dy = -3;
+                paddleX = (canvas.width-paddleWidth)/2;
+            }
+        }
+    }
+    if(rightPressed && paddleX < canvas.width-paddleWidth) {
+        paddleX += 7;
+    }
+    else if(leftPressed && paddleX > 0) {
+        paddleX -= 7;
+    }
+    
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+}
+
+draw();
