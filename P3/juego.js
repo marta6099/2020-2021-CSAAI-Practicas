@@ -50,8 +50,11 @@ function collisionDetection(){
         for(r=0; r<brickRowCount; r++) {
             var b = bricks[c][r];
             // calculations
-            if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-                dy = -dy;
+            if(b.status == 1) {
+                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                    dy = -dy;
+                    b.status = 0;
+                }
             }
         }
     }
@@ -125,6 +128,7 @@ function draw() {
     drawBricks();
     drawScore();
     drawVidas();
+    collisionDetection();
     
     if(x + dx > canvas.width-ballRadius || x + dx < ballRadius) {
         dx = -dx;
