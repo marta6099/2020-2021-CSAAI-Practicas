@@ -54,6 +54,12 @@ function collisionDetection(){
                 if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
                     b.status = 0;
+                    score++;
+                    //Mensaje has ganado cuando se destruye todos los ladrillos
+                    if(score == brickRowCount*brickColumnCount) {
+                        alert("Has ganado, Enhorabuena!!");
+                        document.location.reload();
+                    }
                 }
             }
         }
