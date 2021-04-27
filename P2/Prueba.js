@@ -20,7 +20,10 @@ function main(){
     resta: document.getElementById('resta'),
     resultado: document.getElementById('resultado'),
     AC: document.getElementById('AC'),
-    DEL: document.getElementById('DEL')
+    DEL: document.getElementById('DEL'),
+    decimal: document.getElementById("."),
+    tanto : document.getElementById("%"),
+    raiz : document.getElementById("√"),
     }
 
   var calculadora = {
@@ -147,11 +150,51 @@ function main(){
       if (resultresta!=null){
         resultado_final = resultresta;
       }
+      var tantoposition = this.array_oper.indexOf("%");
+      var resultanto = null;
+      while (tantoposition>0){
+        resultanto = parseInt(this.array_oper[tantoposition-1])/100;
+        this.array_oper[tantoposition] = resultanto;
+        //elimino las posiciones del array de los numeros que se han utilizado
+        //para realizar la resta
+        this.array_oper.splice(tantoposition-1, 1);
+        this.array_oper.splice(tantoposition, 1);
+        var tantoposition = this.array_oper.indexOf("-");
+      }
+      if (resultanto!=null){
+        resultado_final = resultanto;
+      }
+      var raizposition = this.array_oper.indexOf("√");
+      var resultraiz = null;
+      while (raizposition>0){
+        resultraiz = Math.sqrt(parseInt(this.array_oper[raizposition-1]));
+        this.array_oper[raizposition] = resultraiz;
+        //elimino las posiciones del array de los numeros que se han utilizado
+        //para realizar la raiz
+        this.array_oper.splice(raizposition-1, 1);
+        this.array_oper.splice(raizposition, 1);
+        var raizposition = this.array_oper.indexOf("√");
+      }
+      if (resultraiz!=null){
+        resultado_final = resultraiz;
+      }
       gui.display.innerHTML = resultado_final;
     }
   }
+  function darComa(){
+    if(op1 == 0) {
+        op11 = '0.';
+    } else if(op1.indexOf('.') == -1) {
+        op1 += '.';
+    }
+    refrescar();
+}
 
   console.log("CALCULADORA en javascript");
+  gui.decimal.onclick = () =>{
+      calculadora.addnumber(".");
+      darComa();
+  }
 
   gui.boton1.onclick = () => {
     calculadora.addnumber(1);
@@ -205,8 +248,16 @@ function main(){
     calculadora.addoper("/");
   }
 
+  gui.raiz.onclick = () => {
+    calculadora.addoper("√")
+  }
+
   gui.resta.onclick = () => {
     calculadora.addoper("-");
+  }
+
+  gui.tanto.onclick = () => {
+    calculadora.addoper("%");
   }
 
   gui.AC.onclick = () => {
