@@ -178,14 +178,26 @@ function main(){
       if (resultraiz!=null){
         resultado_final = resultraiz;
       }
+      var decimalposition = this.array_oper.indexOf(".");
+      var resultcoma = null;
+      while ( decimalposition>0){
+        resultcoma = parseInt(this.array_oper[restaposition-1]).parseInt(this.array_oper[restaposition+1]);
+        this.array_oper[decimalposition] = resultcoma;
+        this.array_oper.splice(decimalposition-1, 1);
+        this.array_oper.splice(decimalposition, 1);
+        var decimalposition = this.array_oper.indexOf(".");
+      }
+      //if(decimal!= null){
+      //  resultado_final = resultcoma
+     // }
       gui.display.innerHTML = resultado_final;
     }
   }
   function darComa(){
-    if(op1 == 0) {
+    if(this.numero == 0) {
         op11 = '0.';
-    } else if(op1.indexOf('.') == -1) {
-        op1 += '.';
+    } else if(this.array_oper.indexOf('.') == -1) {
+        this.numero += '.';
     }
     refrescar();
 }
@@ -193,7 +205,7 @@ function main(){
   console.log("CALCULADORA en javascript");
   gui.decimal.onclick = () =>{
       calculadora.addnumber(".");
-      darComa();
+     // darComa();
   }
 
   gui.boton1.onclick = () => {
