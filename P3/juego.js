@@ -11,8 +11,11 @@ canvas.height = 520;
 var ballRadius = 10;
 var x = canvas.width/2;
 var y = canvas.height-30;
-var dx = 2;
-var dy = -2;
+
+
+//Definir las velocidades en 0.
+var dx = 0;
+var dy = 0; 
 
 function drawBall() {
     ctx.beginPath();
@@ -36,6 +39,10 @@ function keyDownHandler(e) {
     }
 }
 function keyUpHandler(e) {
+    if(e.keyCode == 32){
+        console.log("eNTRA EN ESPACIO");
+        dx = 2;
+        dy = 2;}
     if(e.keyCode == 39) {
         rightPressed = false;
     }
@@ -43,6 +50,10 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+function keyspaceHandler(e){
+    
+    }
+
 
 //Detectar colisiones
 function collisionDetection(){
@@ -51,7 +62,7 @@ function collisionDetection(){
             var b = bricks[c][r];
             // calculations
             if(b.status == 1) {
-                if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+               if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
                     dy = -dy;
                     b.status = 0;
                     score++;
@@ -147,7 +158,8 @@ function draw() {
             dy = -dy;
         }
         else {
-            if(!lives){
+            vidas--;
+            if(!vidas){
                 alert("GAME OVER");
                 document.location.reload();
         }
