@@ -50,11 +50,6 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
-function keyspaceHandler(e){
-    
-    }
-
-
 //Detectar colisiones
 function collisionDetection(){
     for(c=0; c<brickColumnCount; c++) {
