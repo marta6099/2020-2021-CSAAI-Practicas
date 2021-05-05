@@ -10,7 +10,8 @@ var inicio = document.getElementById('inicio');
 
 //Aöadimos sonidos:
 const sonido_paleta = new Audio('paddle_hit.mp3');
-const sonido_ladrillos = new Audio('roto.mp3')
+const sonido_ladrillos = new Audio('roto.mp3');
+const sonido_perdida = new Audio('caida.mp3');
 //-- Definir el tamaño del canvas
 canvas.width = 580;
 canvas.height = 520;
@@ -41,12 +42,12 @@ stop.onclick = () => {
     ball.dy = 0;
    }
 derecha.onclick = () => {
-  rightPressed = false;
-  leftPressed = true;
+  rightPressed = true;
+  leftPressed = false;
    }
 izquierda.onclick = () => {
-    rightPressed = true;
-    leftPressed = false;
+    rightPressed = false;
+    leftPressed = true;
      }
 inicio.onclick = () => {
     ball.dx =  3 * (Math.random() * 2 - 1);
