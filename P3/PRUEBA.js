@@ -4,6 +4,11 @@ const canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
 var stop= document.getElementById('stop');
+var derecha = document.getElementById('derecha');
+var izquierda = document.getElementById('izquierda');
+var inicio = document.getElementById('inicio');
+
+//Aöadimos sonidos:
 
 //-- Definir el tamaño del canvas
 canvas.width = 580;
@@ -19,10 +24,7 @@ y : canvas.height-30,
 dx : 0,
 dy : 0, 
 }
-stop.onclick = () => {
-    ball.dx = 0;
-    ball.dy = 0;
-   }
+
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ball.x, ball.y, ball.ballRadius, 0, Math.PI*2);
@@ -31,10 +33,27 @@ function drawBall() {
     ctx.closePath();
 }
 //Aöadir boton stop z botones jugar con el movil.
-
-//DEFINIMOS TECLADO
 var rightPressed = false;
 var leftPressed = false;
+stop.onclick = () => {
+    ball.dx = 0;
+    ball.dy = 0;
+   }
+derecha.onclick = () => {
+  rightPressed = false;
+  leftPressed = true;
+   }
+izquierda.onclick = () => {
+    rightPressed = true;
+    leftPressed = false;
+     }
+inicio.onclick = () => {
+    ball.dx =  3 * (Math.random() * 2 - 1);
+    ball.dy = -3;
+}
+
+//DEFINIMOS TECLADO
+
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 function keyDownHandler(e) {
@@ -157,6 +176,7 @@ function draw() {
     
     if(ball.x + ball.dx > canvas.width-ball.ballRadius || ball.x + ball.dx < ball.ballRadius) {
         ball.dx = -ball.dx;
+        sonido_paleta.play();
     }
     if(ball.y + ball.dy < ball.ballRadius) {
         ball.dy = -ball.dy;
