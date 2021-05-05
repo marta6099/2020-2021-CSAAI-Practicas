@@ -16,3 +16,5 @@ Luego puedes observar que hay dos botones más:
 -DEL este otro botón es para si solo te has equivocado en algun número o no deseabas hacer esa operación.
 Tambien observarás dos botones uno el de la raiz cuadrada y otro el del punto para inroducir números decimales. Estos no funcionan correctamente, estamos intentando solucionarlo.
 Por lo que si por algun casual has pulsado sobre el . lo único que ocurrira es que cuando realices la operación te dara un número exacto. 
+--------------------------------------------------------------------------------
+Como mejoras hemos añadido el % y la raiz cuadrada, ademas de darle sonido a las teclas.

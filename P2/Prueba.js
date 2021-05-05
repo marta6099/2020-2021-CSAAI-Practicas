@@ -255,52 +255,76 @@ function main(){
 
   calc.boton8.onclick = () => {
     calculadora.addnumber(8);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.boton9.onclick = () => {
     calculadora.addnumber(9);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.boton0.onclick = () => {
     calculadora.addnumber(0);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.suma.onclick = () => {
     calculadora.addoper("+");
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.multiplicacion.onclick = () => {
     calculadora.addoper("x");
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.division.onclick = () => {
     calculadora.addoper("/");
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.raiz.onclick = () => {
     calculadora.addoper("√")
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.resta.onclick = () => {
     calculadora.addoper("-");
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.tanto.onclick = () => {
     calculadora.addoper("%");
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.AC.onclick = () => {
     calculadora.ACfunction();
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.DEL.onclick = () => {
     calculadora.DELfunction();
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
   calc.resultado.onclick = () => {
 
     calculadora.addoper("=");
     calculadora.resultadofinal();
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
 }
