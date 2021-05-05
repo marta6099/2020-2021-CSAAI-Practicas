@@ -9,7 +9,8 @@ var izquierda = document.getElementById('izquierda');
 var inicio = document.getElementById('inicio');
 
 //Aöadimos sonidos:
-
+const sonido_paleta = new Audio('paddle_hit.mp3');
+const sonido_ladrillos = new Audio('roto.mp3')
 //-- Definir el tamaño del canvas
 canvas.width = 580;
 canvas.height = 520;
@@ -87,6 +88,7 @@ function collisionDetection(){
                     ball.dy = -ball.dy;
                     b.status = 0;
                     score++;
+                    sonido_ladrillos.play();
                     //Mensaje has ganado cuando se destruye todos los ladrillos
                     if(score == brickRowCount*brickColumnCount) {
                         alert("Has ganado, Enhorabuena!!");
@@ -176,7 +178,6 @@ function draw() {
     
     if(ball.x + ball.dx > canvas.width-ball.ballRadius || ball.x + ball.dx < ball.ballRadius) {
         ball.dx = -ball.dx;
-        sonido_paleta.play();
     }
     if(ball.y + ball.dy < ball.ballRadius) {
         ball.dy = -ball.dy;
@@ -184,6 +185,7 @@ function draw() {
     else if(ball.y + ball.dy > canvas.height-ball.ballRadius) {
         if(ball.x > paddleX && ball.x < paddleX + paddleWidth) {
             ball.dy = -ball.dy;
+            sonido_paleta.play();
         }
         else {
             vidas--;
