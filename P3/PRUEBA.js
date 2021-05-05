@@ -11,7 +11,7 @@ var inicio = document.getElementById('inicio');
 //Aöadimos sonidos:
 const sonido_paleta = new Audio('paddle_hit.mp3');
 const sonido_ladrillos = new Audio('roto.mp3');
-const sonido_perdida = new Audio('caida.mp3');
+//const sonido_perdida = new Audio('caida.mp3');
 //-- Definir el tamaño del canvas
 canvas.width = 580;
 canvas.height = 520;
@@ -78,6 +78,32 @@ function keyUpHandler(e) {
         leftPressed = false;
     }
 }
+/* function levelUp(){
+    let isLevelDone = true;
+    
+    // check if all the bricks are broken
+    for(let r = 0; r < brickRowCount; r++){
+        for(let c = 0; c < brickColumnCount; c++){
+            status = 0;
+            isLevelDone = isLevelDone && ! bricks[r][c].status;
+        }
+    }
+    if(isLevelDone){
+        WIN.play();
+        
+        if(LEVEL >= MAX_LEVEL){
+            showYouWin();
+            GAME_OVER = true;
+            return;
+        }
+        brick.row++;
+        createBricks();
+        ball.speed += 0.5;
+        resetBall();
+        LEVEL++;
+    }
+} */
+
 //Detectar colisiones
 function collisionDetection(){
     for(c=0; c<brickColumnCount; c++) {
@@ -176,7 +202,7 @@ function draw() {
     drawScore();
     drawVidas();
     collisionDetection();
-    
+
     if(ball.x + ball.dx > canvas.width-ball.ballRadius || ball.x + ball.dx < ball.ballRadius) {
         ball.dx = -ball.dx;
     }
@@ -215,5 +241,6 @@ function draw() {
     ball.y += ball.dy;
     requestAnimationFrame(draw);
 }
+
 draw();
 //setInterval(draw, 10);
