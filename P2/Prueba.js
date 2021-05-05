@@ -1,6 +1,6 @@
 function main(){
 
-  var gui ={
+  var calc ={
     //BOTONES QUE HAY EN LA CALCULADORA
 
     display: document.getElementById('display'),
@@ -26,6 +26,8 @@ function main(){
     raiz : document.getElementById("√"),
     }
 
+  const click_sound = new Audio('click.mp3');
+
   var calculadora = {
     //OPERACIONES QUE REALIZA LA calculadora
 
@@ -40,7 +42,7 @@ function main(){
     ACfunction: function(){
       this.array_oper = [];
       this.operaciondisplay = "";
-      gui.display.innerHTML = 0;
+      calc.display.innerHTML = 0;
       this.numero = "";
     },
 
@@ -59,9 +61,9 @@ function main(){
       }
       //Si se borra todo el número el display se pone a 0
       if (this.operaciondisplay != ""){
-        gui.display.innerHTML = this.operaciondisplay;
+        calc.display.innerHTML = this.operaciondisplay;
       }else{
-        gui.display.innerHTML = 0;
+        calc.display.innerHTML = 0;
       }
     },
 
@@ -69,7 +71,7 @@ function main(){
     addnumber: function(valor){
       this.operaciondisplay = this.operaciondisplay + valor;
       this.numero = this.numero + valor;
-      gui.display.innerHTML = this.operaciondisplay;
+      calc.display.innerHTML = this.operaciondisplay;
     },
 
     //función que añade un operador cuando pulsas un boton de la calculadora
@@ -80,7 +82,7 @@ function main(){
       this.numero = "";
       this.array_oper.push(valor);
       this.operaciondisplay = this.operaciondisplay + valor;
-      gui.display.innerHTML = this.operaciondisplay;
+      calc.display.innerHTML = this.operaciondisplay;
     },
 
     //funcion que te da el resultado final
@@ -190,7 +192,7 @@ function main(){
       //if(decimal!= null){
       //  resultado_final = resultcoma
      // }
-      gui.display.innerHTML = resultado_final;
+     calc.display.innerHTML = resultado_final;
     }
   }
   function darComa(){
@@ -203,84 +205,99 @@ function main(){
 }
 
   console.log("CALCULADORA en javascript");
-  gui.decimal.onclick = () =>{
+  calc.decimal.onclick = () =>{
       calculadora.addnumber(".");
      // darComa();
+     
   }
 
-  gui.boton1.onclick = () => {
+  calc.boton1.onclick = () => {
     calculadora.addnumber(1);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton2.onclick = () => {
+  calc.boton2.onclick = () => {
     calculadora.addnumber(2);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton3.onclick = () => {
+  calc.boton3.onclick = () => {
     calculadora.addnumber(3);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton4.onclick = () => {
+  calc.boton4.onclick = () => {
     calculadora.addnumber(4);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton5.onclick = () => {
+  calc.boton5.onclick = () => {
     calculadora.addnumber(5);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton6.onclick = () => {
+  calc.boton6.onclick = () => {
     calculadora.addnumber(6);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton7.onclick = () => {
+  calc.boton7.onclick = () => {
     calculadora.addnumber(7);
+    click_sound.currentTime = 0;
+    click_sound.play();
   }
 
-  gui.boton8.onclick = () => {
+  calc.boton8.onclick = () => {
     calculadora.addnumber(8);
   }
 
-  gui.boton9.onclick = () => {
+  calc.boton9.onclick = () => {
     calculadora.addnumber(9);
   }
 
-  gui.boton0.onclick = () => {
+  calc.boton0.onclick = () => {
     calculadora.addnumber(0);
   }
 
-  gui.suma.onclick = () => {
+  calc.suma.onclick = () => {
     calculadora.addoper("+");
   }
 
-  gui.multiplicacion.onclick = () => {
+  calc.multiplicacion.onclick = () => {
     calculadora.addoper("x");
   }
 
-  gui.division.onclick = () => {
+  calc.division.onclick = () => {
     calculadora.addoper("/");
   }
 
-  gui.raiz.onclick = () => {
+  calc.raiz.onclick = () => {
     calculadora.addoper("√")
   }
 
-  gui.resta.onclick = () => {
+  calc.resta.onclick = () => {
     calculadora.addoper("-");
   }
 
-  gui.tanto.onclick = () => {
+  calc.tanto.onclick = () => {
     calculadora.addoper("%");
   }
 
-  gui.AC.onclick = () => {
+  calc.AC.onclick = () => {
     calculadora.ACfunction();
   }
 
-  gui.DEL.onclick = () => {
+  calc.DEL.onclick = () => {
     calculadora.DELfunction();
   }
 
-  gui.resultado.onclick = () => {
+  calc.resultado.onclick = () => {
 
     calculadora.addoper("=");
     calculadora.resultadofinal();
