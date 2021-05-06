@@ -1,16 +1,10 @@
 /* Documento de estilo para el curriculum de wall-e */
 body{
     background-color: #FAEBD7;
-    background-image: url("fondo.jpeg");
-    color: #ffffff
+    background-image: url("fondo3.jpg");
+    color: white;
 }
-.foto{
-    width: 100px;
-    vertical-align: left;
-    /*height: 200px;*/
-    float: center;
-    
-}
+
 @font-face{
     font-family: "CFIRobotRegular";
     src: url(CFIRobotRegular.ttf);
@@ -104,18 +98,15 @@ h2.estudios{
     position: inherit;
 }
 ul{
-    list-style: none;
-    padding: 0;
-    margin-left: 10px;
-    background: center;
+    font: italic 120% monospace;
+    margin: 10px;
+    text-align: left;
+    padding-left: 60px;
+
 }
 li{
-    list-style-type: "🌼";
-    background: right center;
-    height: 20px;
-    padding-left: 25px;
-    border-left: 50px;
-
+    list-style-type: "🌼 ";
+    align-items: center;
 }
 h2.Experiencias{
     font-family: "robotech";
@@ -167,46 +158,32 @@ ul.Otros{
     position: inherit;
 }
 div.contacto{
-    align-content: left;
-    margin-right: 0px;
-    margin-left: -180px;
-    margin-top: 150px;
-    float:left;
-    width: 25%;
-}
-div.foto{ 
-    align-content: right;
     float: left;
-    width: 170px;
-    text-align: justify;
+    width: 25%;
+    text-align: center;
+    border-radius: 25px;
+    margin-right: 5px;
+}
+#foto{ 
+    padding: 8px 8px 20px 8px;
+    width: 100%;
+    margin-left: 10px;
+    background-color: #ffffff;
+    width: 200px;
+    border: 1px solid #999999
+
 }
 div.sobremi{
     float: left;
     width: 25%;
-    text-align: justify;
-    margin-top: 350px;
-    margin-left: -480px;
-    margin-right: 20px;
+    text-align: center;
+    border-radius: 25px;
+    margin-right: 5px;
 }
 div.estudios{
-    float: left;
-    width: 65%;
-    text-align: justify;
-}
-div.Experiencias{
-    float: left;
-    align-content: right;
-    width: 65%;
-    text-align: justify;
-}
-div.Idiomas{
-    float: left;
-    width: 25%;
-    text-align: justify;
-}
-div.Otros{
-    float: left;
-    width: 25%;
-    margin-left: 270px;
-    text-align: justify;
+    float: right;
+    width: 70%;
+    text-align: center;
+    border-radius: 25px;
+    margin-right: 5px;
 }
