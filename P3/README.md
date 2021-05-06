@@ -8,3 +8,4 @@ Mi juego funciona de la siguiente manera:
     ----------------------------------
     Hemos aöadido el boton pausa.
     Como mejoras aunque el juego vaza con las teclas espacio para iniciar, y las teclas derecha e izquierda hemos aöadido para si se quiere jugar con el movil.
+    Tambien hemos aöadido sonido en la paleta y los ladrillos
