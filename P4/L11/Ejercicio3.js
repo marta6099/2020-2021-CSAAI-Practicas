@@ -32,6 +32,25 @@ img.onload = function () {
   console.log("Imagen lista...");
 };
 
+function filtroColores(data){
+  var umbralR = deslizador.value;
+  var umbralG = deslizador2.value;
+  var umbralB = deslizador3.value;
+  //-- Filtrar la imagen según el nuevo umbral
+  for (var i = 0; i < data.length; i+=4) {
+      if (data[i] > umbralR){
+        data[i] = umbralR;
+      }
+      if (data[i+1] > umbralG){
+        data[i+1] = umbralG;
+      }
+      if (data[i+2] > umbralB){
+        data[i+2] = umbralB;
+      }
+    }
+}
+
+
 activo.onclick = () => {
 //-- Funcion de retrollamada del deslizador
 deslizador.oninput = () => {
@@ -48,7 +67,7 @@ deslizador.oninput = () => {
 
   //-- Obtener el array con todos los píxeles
   let data = imgData.data
-
+/* 
   //-- Obtener el umbral de rojo del desliador
   umbral = deslizador.value
   
@@ -56,7 +75,8 @@ deslizador.oninput = () => {
   for (let i = 0; i < data.length; i+=4) {
     if (data[i] > umbral)
       data[i] = umbral;
-  }
+  } */
+  filtroColores(data);
   ctx.putImageData(imgData, 0, 0);
 }
   deslizador2.oninput = () => {
@@ -64,11 +84,12 @@ deslizador.oninput = () => {
     ctx.drawImage(img, 0,0);
     let imgData2 = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let data = imgData2.data
-    umbral2 = deslizador2.value
+    filtroColores(data);
+    /* umbral2 = deslizador2.value
     for (let i = 4+1; i < data.length; i+=4) {
         if (data[i] > umbral2)
           data[i] = umbral2;
-    }
+    } */
     ctx.putImageData(imgData2, 0, 0);
 }
     deslizador3.oninput = () => {
@@ -76,11 +97,12 @@ deslizador.oninput = () => {
         ctx.drawImage(img, 0,0);
         let imgData3 = ctx.getImageData(0, 0, canvas.width, canvas.height);
         let data = imgData3.data
-        umbral3 = deslizador3.value
+        filtroColores(data);
+       /*  umbral3 = deslizador3.value
         for (let i = 4+2; i < data.length; i+=4) {
             if (data[i] > umbral3)
               data[i] = umbral3;
-        }
+        } */
   //-- Poner la imagen modificada en el canvas
 
   ctx.putImageData(imgData3, 0, 0);
