@@ -6,12 +6,14 @@ const img = document.getElementById("imagesrc");
 const ctx = canvas.getContext("2d");
 
 //Acesso a los deslizadores
-const deslizador = document.getElementById('deslizador');
-const deslizador2 = document.getElementById('deslizador2');
-const deslizador3 = document.getElementById('deslizador3');
+const deslizadorR = document.getElementById('deslizadorR');
+const deslizadorG = document.getElementById('deslizadorG');
+const deslizadorB = document.getElementById('deslizadorB');
 
 //-- Valor del deslizador
-const range_value = document.getElementById('range_value');
+const range_valueR = document.getElementById('range_valueR');
+const range_valueG = document.getElementById('range_valueG');
+const range_valueB = document.getElementById('range_valueB');
 
 //Creamos la funcion de llamada a la imagen cargada
 //-- La imagen no se carga instantaneamente, sino que
@@ -28,23 +30,47 @@ img.onload = function () {
 }
 
 function filtroColores(data){
-    var umbralR = deslizador.value;
-    var umbralG = deslizador2.value;
-    var umbralB = deslizador3.value;
+    ctx.drawImage(img, 0, 0);
+    range_valueR.innerHTML = deslizadorR.value;
+    range_valueG.innerHTML = deslizadorG.value;
+    range_valueB.innerHTML = deslizadorB.value;
+    //Obtenemos la imagen del canvas en pixeles:
+    var imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    //Obtenemos el array con todos los pixeles
+    var data = imgData.data
+
+    //Obtenemos los umbrales.
+    var umbralR = deslizadorR.value
+    var umbralG = deslizadorG.value
+    var umbralB = deslizadorB.value
+
     //-- Filtrar la imagen según el nuevo umbral
+
     for (var i = 0; i < data.length; i+=4) {
         if (data[i] > umbralR){
-          data[i] = umbralR;
+            data[i] = umbralR;
         }
         if (data[i+1] > umbralG){
-          data[i+1] = umbralG;
+            data[i+1] = umbralG;
         }
         if (data[i+2] > umbralB){
-          data[i+2] = umbralB;
+            data[i+2] = umbralB;
         }
+        ctx.putImageData(imgData, 0, 0);
       }
+
+  deslizadorR.oninput = () => {
+        umbral()
   }
-  function deslizadores(){
+  deslizadorG.oninput = () => {
+        umbral()
+  }
+  deslizadorB.oninput = () => {
+        umbral()
+  }
+ }
+  /*function deslizadores(){
   //-- Funcion de retrollamada del deslizador
     deslizador.oninput = () => {
     //-- Mostrar el nuevo valor del deslizador
@@ -68,7 +94,7 @@ function filtroColores(data){
     for (let i = 0; i < data.length; i+=4) {
       if (data[i] > umbral)
         data[i] = umbral;
-    } */
+    }
     filtroColores(data);
     ctx.putImageData(imgData, 0, 0);
   }
@@ -82,7 +108,7 @@ function filtroColores(data){
       for (let i = 4+1; i < data.length; i+=4) {
           if (data[i] > umbral2)
             data[i] = umbral2;
-      } */
+      }
       ctx.putImageData(imgData2, 0, 0);
   }
       deslizador3.oninput = () => {
@@ -98,8 +124,8 @@ function filtroColores(data){
           } */
     //-- Poner la imagen modificada en el canvas
   
-    ctx.putImageData(imgData3, 0, 0);
+    //ctx.putImageData(imgData3, 0, 0);
   
-  }
-  }
+  //}
+  //}
 console.log("Fin...")
