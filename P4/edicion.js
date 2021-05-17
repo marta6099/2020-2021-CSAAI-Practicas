@@ -4,6 +4,9 @@ console.log("Ejecutando JS...")
 const canvas = document.getElementById('canvas');
 const img = document.getElementById("imagesrc");
 const ctx = canvas.getContext("2d");
+var activo = document.getElementById('colores');
+var espejo = document.getElementById("espejo");
+var blancoynegro = document.getElementById("blancoynegro");
 
 //Acesso a los deslizadores
 const deslizadorR = document.getElementById('deslizadorR');
@@ -29,6 +32,7 @@ img.onload = function () {
     console.log("Imagen Cargada");
 }
 
+
 function filtroColores(data){
     ctx.drawImage(img, 0, 0);
     range_valueR.innerHTML = deslizadorR.value;
@@ -48,84 +52,57 @@ function filtroColores(data){
     //-- Filtrar la imagen según el nuevo umbral
 
     for (var i = 0; i < data.length; i+=4) {
-        if (data[i] > umbralR){
+        if (data[i] > umbralR)
             data[i] = umbralR;
-        }
-        if (data[i+1] > umbralG){
+        
+        if (data[i+1] > umbralG)
             data[i+1] = umbralG;
-        }
-        if (data[i+2] > umbralB){
+        
+        if (data[i+2] > umbralB)
             data[i+2] = umbralB;
-        }
-        ctx.putImageData(imgData, 0, 0);
+        
       }
-
-  deslizadorR.oninput = () => {
-        umbral()
-  }
-  deslizadorG.oninput = () => {
-        umbral()
-  }
-  deslizadorB.oninput = () => {
-        umbral()
-  }
- }
-  /*function deslizadores(){
-  //-- Funcion de retrollamada del deslizador
-    deslizador.oninput = () => {
-    //-- Mostrar el nuevo valor del deslizador
-    range_value.innerHTML = deslizador.value;
-  
-  
-    //-- Situar la imagen original en el canvas
-    //-- No se han hecho manipulaciones todavia
-    ctx.drawImage(img, 0,0);
-  
-    //-- Obtener la imagen del canvas en pixeles
-    let imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-  
-    //-- Obtener el array con todos los píxeles
-    let data = imgData.data
-  /* 
-    //-- Obtener el umbral de rojo del desliador
-    umbral = deslizador.value
-    
-    //-- Filtrar la imagen según el nuevo umbral
-    for (let i = 0; i < data.length; i+=4) {
-      if (data[i] > umbral)
-        data[i] = umbral;
+      ctx.putImageData(imgData, 0, 0);
     }
-    filtroColores(data);
-    ctx.putImageData(imgData, 0, 0);
-  }
-    deslizador2.oninput = () => {
-      range_value.innerHTML = deslizador2.value;
-      ctx.drawImage(img, 0,0);
-      let imgData2 = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      let data = imgData2.data
-      filtroColores(data);
-      /* umbral2 = deslizador2.value
-      for (let i = 4+1; i < data.length; i+=4) {
-          if (data[i] > umbral2)
-            data[i] = umbral2;
-      }
-      ctx.putImageData(imgData2, 0, 0);
-  }
-      deslizador3.oninput = () => {
-          range_value.innerHTML = deslizador3.value;
-          ctx.drawImage(img, 0,0);
-          let imgData3 = ctx.getImageData(0, 0, canvas.width, canvas.height);
-          let data = imgData3.data
-          filtroColores(data);
-         /*  umbral3 = deslizador3.value
-          for (let i = 4+2; i < data.length; i+=4) {
-              if (data[i] > umbral3)
-                data[i] = umbral3;
-          } */
-    //-- Poner la imagen modificada en el canvas
   
-    //ctx.putImageData(imgData3, 0, 0);
-  
-  //}
-  //}
+  activo.onclick = () => {
+    deslizadorR.oninput = () => {
+          filtroColores();
+    }
+    deslizadorG.oninput = () => {
+          filtroColores();
+    }
+    deslizadorB.oninput = () => {
+          filtroColores();
+    }
+  }
+ 
+blancoynegro.onclick = () => {
+  var imgbyn = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var data = imgbyn.data
+  for (var i = 0; i < data.length; i++) {
+    var promedio =Math.round((imgbyn.data[i*4]
+      +imgbyn.data[i*4 + 1]
+      +imgbyn.data[i*4 + 2])/3);
+      imgbyn.data[i*4] = promedio;
+      imgbyn.data[i*4 +1] = promedio;
+      imgbyn.data[i*4+2] = promedio;
+    }
+    ctx.putImageData(imgbyn, 0, 0);
+  }
+
+function Negativo(){
+
+}
+function Sepia(){
+
+}
+espejo.onclick = () => {
+  ctx.drawImage(img, 0, 0);
+  ctx.translate(2*(img.width)/2,0);
+  ctx.scale(-1,1);
+  ctx.drawImage(img, 0,0);
+  console.log("espejo");
+}
+
 console.log("Fin...")
