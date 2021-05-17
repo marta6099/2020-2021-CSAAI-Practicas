@@ -7,6 +7,10 @@ const ctx = canvas.getContext("2d");
 var activo = document.getElementById('colores');
 var espejo = document.getElementById("espejo");
 var blancoynegro = document.getElementById("blancoynegro");
+var original = document.getElementById("original");
+var negativo = document.getElementById("negativo");
+var contrastema = document.getElementById("contrastema");
+var contrasteme = document.getElementById("contrasteme");
 
 //Acesso a los deslizadores
 const deslizadorR = document.getElementById('deslizadorR');
@@ -91,18 +95,101 @@ blancoynegro.onclick = () => {
     ctx.putImageData(imgbyn, 0, 0);
   }
 
-function Negativo(){
-
-}
-function Sepia(){
-
-}
+negativo.onclick = () => {
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var pixels = imageData.data;
+        numPixels = imageData.width * imageData.height;
+ 
+    for ( var i = 0; i < numPixels; i++ ) {
+        var r = pixels[ i * 4 ];
+        var g = pixels[ i * 4 + 1 ];
+        var b = pixels[ i * 4 + 2 ];
+ 
+        pixels[ i * 4 ] = 255 - r;
+        pixels[ i * 4 + 1 ] = 255 - g;
+        pixels[ i * 4 + 2 ] = 255 - b;
+    }
+ 
+    ctx.putImageData( imageData, 0, 0 );
+};
+sepia.onclick = () => {
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        var pixels = imageData.data;
+        numPixels = imageData.width * imageData.height;
+ 
+        for ( var i = 0; i < numPixels; i++ ) {
+          var r = pixels[ i * 4 ];
+          var g = pixels[ i * 4 + 1 ];
+          var b = pixels[ i * 4 + 2 ];
+   
+          pixels[ i * 4 ] = 255 - r;
+          pixels[ i * 4 + 1 ] = 255 - g;
+          pixels[ i * 4 + 2 ] = 255 - b;
+   
+          pixels[ i * 4 ] = ( r * .393 ) + ( g *.769 ) + ( b * .189 );
+          pixels[ i * 4 + 1 ] = ( r * .349 ) + ( g *.686 ) + ( b * .168 );
+          pixels[ i * 4 + 2 ] = ( r * .272 ) + ( g *.534 ) + ( b * .131 );
+      }
+ 
+    ctx.putImageData( imageData, 0, 0 );
+};
 espejo.onclick = () => {
   ctx.drawImage(img, 0, 0);
   ctx.translate(2*(img.width)/2,0);
   ctx.scale(-1,1);
   ctx.drawImage(img, 0,0);
-  console.log("espejo");
 }
+original.onclick = () => {
+  ctx.drawImage(img, 0,0);
+  ctx.scale(1,1);
+  ctx.drawImage(img,0,0);
+}
+
+//Darle más contraste
+contrastema.onclick = () => {
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var pixels = imageData.data,
+  numPixels = imageData.width * imageData.height,
+  factor;
+ 
+    var contrast = 100; // Default value
+ 
+    factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
+ 
+    for ( var i = 0; i < numPixels; i++ ) {
+        var r = pixels[ i * 4 ];
+        var g = pixels[ i * 4 + 1 ];
+        var b = pixels[ i * 4 + 2 ];
+ 
+        pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
+        pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
+        pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
+    }
+ 
+    ctx.putImageData( imageData, 0, 0 );
+};
+contrasteme.onclick = () => {
+  var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+  var pixels = imageData.data,
+  numPixels = imageData.width * imageData.height,
+  factor;
+ 
+    var contrast = -100; // Default value
+ 
+    factor = ( 259 * ( contrast + 255 ) ) / ( 255 * ( 259 - contrast ) );
+ 
+    for ( var i = 0; i < numPixels; i++ ) {
+        var r = pixels[ i * 4 ];
+        var g = pixels[ i * 4 + 1 ];
+        var b = pixels[ i * 4 + 2 ];
+ 
+        pixels[ i * 4 ] = factor * ( r - 128 ) + 128;
+        pixels[ i * 4 + 1 ] = factor * ( g - 128 ) + 128;
+        pixels[ i * 4 + 2 ] = factor * ( b - 128 ) + 128;
+    }
+ 
+    ctx.putImageData( imageData, 0, 0 );
+};
+
 
 console.log("Fin...")
