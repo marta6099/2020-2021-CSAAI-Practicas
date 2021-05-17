@@ -11,6 +11,7 @@ var original = document.getElementById("original");
 var negativo = document.getElementById("negativo");
 var contrastema = document.getElementById("contrastema");
 var contrasteme = document.getElementById("contrasteme");
+var ruido = document.getElementById("ruido");
 
 //Acesso a los deslizadores
 const deslizadorR = document.getElementById('deslizadorR');
@@ -190,6 +191,23 @@ contrasteme.onclick = () => {
  
     ctx.putImageData( imageData, 0, 0 );
 };
+ruido.onclick = () => {
+  ctx.drawImage(img, 0,0);
+  //--Obtener la imagen del canvas en pixeles
+  let imgData = ctx.getImageData(0,0,canvas.width, canvas.height);
+  //--Obtener el array con todos los píxeles
+  let data = imgData.data;
+    for (let i = 0, n = data.length; i < n; i += 4) {
+
+       let randRed = 0.6 + Math.random() * 0.8;
+       let randGreen = 0.6 + Math.random() * 0.8;
+       let randBlue = 0.6 + Math.random() * 0.8;
+        data[i] = data[i]*randRed;
+        data[i+1] = data[i+1]*randGreen;
+        data[i+2] = data[i+2]*randBlue;
+    }
+    ctx.putImageData(imgData, 0, 0);
+}
 
 
 console.log("Fin...")
