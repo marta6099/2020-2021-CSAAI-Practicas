@@ -1,3 +1,61 @@
 body {
     background-color: blanchedalmond;
+    background-image: url("fondo.jpg");
+    color: whitesmoke;
+
   }
+  h2{
+    text-align: center right;
+  }
+  h1{
+    text-align: center;
+  }
+ .imagen{
+   width: 45%;
+   margin-left: 5%;
+   float: left;
+   
+ }
+ .imagen2{
+   width: 50%;
+   border-radius: 10%;
+   float: right;
+ }
+  .botones{
+    background-color: blanchedalmond;
+    background-size: cover;
+    width: 70%;
+    float:  center;
+    align-content: center;
+    text-align: center;
+  }
+
+  
+button{
+  padding: .6rem 1rem;
+  border: 1px solid #995309;
+  border-radius: 14px;
+  background-color: #d9750b;
+  align-content: center;
+  color: #fff;
+  margin-left: 2px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  font-size: 1.5rem;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.5);
+  box-shadow: 0 1px 0 rgba(255,255,255,.5) inset,
+    0 1px 3px rgba(0,0,0,.2);
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#f90),to(#e76a00));
+  background-image: linear-gradient(#f90 10%,#e76a00 100%);
+}
+button:hover, button:focus{
+  background-color: #e0811b;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#f0a100),to(#f70));
+  background-image: linear-gradient(#f0a100 10%,#f70 100%);
+}
+button:active {
+  background-color: #cf6a00;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.2) inset;
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(10%,#f0a100),to(#f70));
+  background-image: linear-gradient(#f0a100 10%,#f70 100%);
+}

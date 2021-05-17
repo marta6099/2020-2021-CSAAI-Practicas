@@ -12,9 +12,9 @@
     <h1>Procesado de imagenes EL REY LEON</h1>
     <div class="imagen">
       <h2 id="img1">Imagen 1</h2>
-      <img src="imagen.jpeg" id="imagesrc">
-      
-      <br>
+      <img src="ima.jpg" id="imagesrc">
+    </div>
+    <div class="imagen2">
       <h2 id="img2">Imagen manipulada</h2>
       <canvas id="canvas"></canvas>
       <!-- <img src="imagen.jpeg" id="imagesrc2"> -->
@@ -32,18 +32,17 @@
       <button id="negativo">NEGATIVO</button>
       <button id="contrastema">Mas contraste</button>
       <button id="contrasteme">Menos contraste</button>
-    </div>
+      <button id="Ruido">Ruido</button>
       <br>
-    <div id="deslizadores">
       <p>Establece el umbral de rojo:</p>
       <input type="range" id="deslizadorR" min="0" max="255" value="255"/>
-      <p id="range_valueR">00</p>
+      <span id="range_valueR">00</span>
       <p>Establece el umbral de verde:</p>
       <input type="range" id="deslizadorG" min="0" max="255" value="255"/>
-      <p id="range_valueG">00</p>
+      <span id="range_valueG">00</span>
       <p>Establece el umbral de azul:</p>
       <input type="range" id="deslizadorB" min="0" max="255" value="255"/>
-      <p id="range_valueB">00</p>
+      <span id="range_valueB">00</span>
     </div>
   </body>
 </html>
