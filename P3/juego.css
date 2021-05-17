@@ -3,10 +3,61 @@
   azul para distinguirlo
 */
 
+body{
+  background-image: url("fondo.jpg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-attachment: fixed;
+
+}
+p{
+  font-style: oblique;
+    font-family: Helvetica, sans-serif, Arial;
+    font-size: 15px;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    text-decoration: underline #000;
+  
+}
+#juego{
+  align-content: center top;
+  text-align: center;
+  width: 70%;
+  float: inherit;
+
+}
+#botones{
+  align-content: center bottom;
+  width: 25%;
+}
+
+
 canvas {
-    background-color: lightblue;
+    background-color: bisque;
+    background-position: center;
     border-style: solid;
     border-width: 1px;
     border-color: black;
     border-radius: 5px;
+    background-attachment: scroll;
+    position:fixed;
   }
+  .boton{
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: chocolate;
+    color: white;
+	  font-family: 'Rubik One', sans-serif;
+	  text-decoration: none;
+	  font-size: 24px;
+    align-content: center;
+    text-align: center;
+	  transition: all .5s;
+	}
+input:hover{
+  color: blue; 
+}
+  
+  

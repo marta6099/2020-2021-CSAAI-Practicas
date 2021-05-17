@@ -8,7 +8,7 @@ var derecha = document.getElementById('derecha');
 var izquierda = document.getElementById('izquierda');
 var inicio = document.getElementById('inicio');
 
-//Aöadimos sonidos:
+//Añadimos sonidos:
 const sonido_paleta = new Audio('paddle_hit.mp3');
 const sonido_ladrillos = new Audio('roto.mp3');
 //const sonido_perdida = new Audio('caida.mp3');
@@ -243,4 +243,5 @@ function draw() {
 }
 
 draw();
+
 //setInterval(draw, 10);
