@@ -1,7 +1,10 @@
 /* Documento de estilo para el curriculum de wall-e */
 body{
-    background-color: #FAEBD7;
-    background-image: url("fondo3.jpg");
+    background-color: #0a0a0a;
+    background-image: url("fondo.jpeg");
+    background-position: center;
+    margin-bottom: 20%;
+    background-repeat: no-repeat;
     color: white;
 }
 
@@ -118,7 +121,7 @@ h2.Experiencias{
     text-decoration: underline #ffffff;
     text-decoration-style: line;
     text-align: center;
-    position: inherit; 
+    position: block; 
 
 }
 .Experiencias{
@@ -196,7 +199,6 @@ a:link{
     font-style: inherit;
     font-size: 20px;
     color: white;
-    text-decoration:;
 }
 a:hover{
     font-size: 30px;
