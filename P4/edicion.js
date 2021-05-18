@@ -18,6 +18,8 @@ const deslizadorR = document.getElementById('deslizadorR');
 const deslizadorG = document.getElementById('deslizadorG');
 const deslizadorB = document.getElementById('deslizadorB');
 
+  
+
 //-- Valor del deslizador
 const range_valueR = document.getElementById('range_valueR');
 const range_valueG = document.getElementById('range_valueG');
@@ -28,6 +30,10 @@ const range_valueB = document.getElementById('range_valueB');
 //-- lleva un tiempo. Sólo podemos acceder a ella una vez
 //-- que esté totalmente cargada
 img.onload = function () {
+
+  deslizadorR.style.display = "block";
+  deslizadorG.style.display = "block";
+  deslizadorB.style.display = "block";
     //Establecemos tamaño del canvas
     canvas.width = img.width;
     canvas.height = img.height;
@@ -39,6 +45,9 @@ img.onload = function () {
 
 
 function filtroColores(data){
+  deslizadorR.style.display = "block";
+  deslizadorG.style.display = "block";
+  deslizadorB.style.display = "block";
     ctx.drawImage(img, 0, 0);
     range_valueR.innerHTML = deslizadorR.value;
     range_valueG.innerHTML = deslizadorG.value;
@@ -71,6 +80,9 @@ function filtroColores(data){
     }
   
   activo.onclick = () => {
+    deslizadorR.style.display = "block";
+    deslizadorG.style.display = "block";
+    deslizadorB.style.display = "block";
     deslizadorR.oninput = () => {
           filtroColores();
     }
@@ -83,6 +95,9 @@ function filtroColores(data){
   }
  
 blancoynegro.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   var imgbyn = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var data = imgbyn.data
   for (var i = 0; i < data.length; i++) {
@@ -92,11 +107,15 @@ blancoynegro.onclick = () => {
       imgbyn.data[i*4] = promedio;
       imgbyn.data[i*4 +1] = promedio;
       imgbyn.data[i*4+2] = promedio;
+      
     }
     ctx.putImageData(imgbyn, 0, 0);
   }
 
 negativo.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var pixels = imageData.data;
         numPixels = imageData.width * imageData.height;
@@ -114,6 +133,9 @@ negativo.onclick = () => {
     ctx.putImageData( imageData, 0, 0 );
 };
 sepia.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         var pixels = imageData.data;
         numPixels = imageData.width * imageData.height;
@@ -135,6 +157,9 @@ sepia.onclick = () => {
     ctx.putImageData( imageData, 0, 0 );
 };
 espejo.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   ctx.drawImage(img, 0, 0);
   ctx.translate(2*(img.width)/2,0);
   ctx.scale(-1,1);
@@ -148,6 +173,9 @@ original.onclick = () => {
 
 //Darle más contraste
 contrastema.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var pixels = imageData.data,
   numPixels = imageData.width * imageData.height,
@@ -170,6 +198,9 @@ contrastema.onclick = () => {
     ctx.putImageData( imageData, 0, 0 );
 };
 contrasteme.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
   var pixels = imageData.data,
   numPixels = imageData.width * imageData.height,
@@ -192,6 +223,9 @@ contrasteme.onclick = () => {
     ctx.putImageData( imageData, 0, 0 );
 };
 ruido.onclick = () => {
+  deslizadorR.style.display = "none";
+  deslizadorG.style.display = "none";
+  deslizadorB.style.display = "none";
   ctx.drawImage(img, 0,0);
   //--Obtener la imagen del canvas en pixeles
   let imgData = ctx.getImageData(0,0,canvas.width, canvas.height);
