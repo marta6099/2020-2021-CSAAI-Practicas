@@ -1,0 +1,94 @@
+body{
+    background-color: rgb(0, 0, 0);
+    background-image: url("fondo2.jpg");
+    color: whitesmoke;
+    background-size: 100%;
+    background-repeat: no-repeat;   
+}
+.boton {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;	
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.boton:hover {background-color: #3e8e41}
+
+.boton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#video3{
+    float: right;
+    margin-left: 10px;
+}
+#video2{
+    float: center;
+    margin-left: 10px;
+    margin-right: 10px;
+ 
+}
+#video1{
+    float: left;
+
+}
+#play{
+    float: center;
+    width: 100%;
+}
+#caja1{
+    float: center;
+    margin-left: 20%;
+}
+#caja2{
+    float: left;
+    margin-left: 20px;
+    margin-right: 80px;
+
+}
+#caja3{
+    float: left;
+    margin-left: 150px;
+    margin-right: 100px;
+    
+}
+#caja4{
+    float: left;
+    margin-left: 150px;
+}
+#caja2.boton{
+    float: left;
+
+}
+.boton1{
+    display: inline-block;
+    padding: 15px 15px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: right;	
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #cce448;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    align-content: center;
+}
+.boton1:hover {background-color: #fcec0e}
+
+.boton1:active {
+  background-color: #ecfa2d;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

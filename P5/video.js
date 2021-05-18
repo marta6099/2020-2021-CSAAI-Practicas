@@ -10,6 +10,7 @@ const prueba = document.getElementById("prueba");
 const on = document.getElementById("ON");
 const off = document.getElementById("OFF");
 
+//Para pausar y reproducir los videos
 
 const pause1 = document.getElementById("pause1");
 const reproducir1 = document.getElementById("reproducir1");
@@ -22,12 +23,15 @@ const reproducir3 = document.getElementById("reproducir3");
 //-- Establecemos las dimensiones de los vídeos
 play.width=600;
 play.height=600;
+
 video1.width=450;  
 video1.height=300;
-video2.width=400;
-video2.height=400;
-video3.width = 400;
-video3.height = 400; 
+
+video2.width=450;
+video2.height=300;
+
+video3.width = 450;
+video3.height = 300; 
 
 //-- Imagen de Test usada
 const TEST_IMAGE_URL = "noseñal.jpg";
@@ -85,7 +89,7 @@ play.src = null;
 
 //-- Botón de Test
 prueba.onclick = () => {
-    play.poster = TEST_IMAGE_URL;
+    play.poster = "offline.png";
     play.src = null;
 };
 
@@ -137,10 +141,10 @@ reproducir3.onclick = () => {
 var bucle = document.getElementById("bucle");
 bucle.onclick = () => {
   console.log("bucle");
-    video4.loop=true;
+    play.loop=true;
 };
 var nobucle = document.getElementById("nobucle");
 nobucle.onclick = () => {
   console.log("No bucle");
-    video4.muted=false;
+    play.muted=false;
 };
