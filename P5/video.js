@@ -10,11 +10,20 @@ const prueba = document.getElementById("prueba");
 const on = document.getElementById("ON");
 const off = document.getElementById("OFF");
 
+
+const pause1 = document.getElementById("pause1");
+const reproducir1 = document.getElementById("reproducir1");
+const pause2 = document.getElementById("pause2");
+const reproducir2 = document.getElementById("reproducir2");
+const pause3 = document.getElementById("pause3");
+const reproducir3 = document.getElementById("reproducir3");
+
+
 //-- Establecemos las dimensiones de los vídeos
 play.width=600;
 play.height=600;
-video1.width=400;  
-video1.height=400;
+video1.width=450;  
+video1.height=300;
 video2.width=400;
 video2.height=400;
 video3.width = 400;
@@ -34,9 +43,9 @@ video3.poster = TEST_IMAGE_URL;
 on.onclick = () => {
  
   //-- Establecer la fuente de la cámara 1
-  video1.src="https://gsyc.urjc.es/jmplaza/csaai/realizador-fuente1.mp4";
-  video2.src="https://drive.google.com/uc?export=download&id=1IK4d1sMcp-en3W0eTYnV4rA74bAah1Sj";
-  video3.src ="https://github.com/marta6099/2020-2021-CSAAI-Practicas/blob/main/P5/video1.mp4";
+  video1.src="https://marta6099.github.io/prueba/Video_uno.mp4";
+  video2.src="https://marta6099.github.io/prueba/video2.mp4";
+  video3.src ="https://marta6099.github.io/prueba/video3.mp4";
 
   //-- Reprodeucimos un vídeo, desde el comienzo
   video1.currentTime = 0;
@@ -46,12 +55,12 @@ on.onclick = () => {
   video3.play();
   video2.play();
 
-  //-- Y en silencio...
+  //-- Videos en silencio mientras no se reproducen
   video1.muted =true;
   video2.muted =true;
   video3.muted = true;
 
-  //-- En la emisión en directo ponemos la imagen de prueba
+  //-- Si no hemos seleccionado ningun video se pondra la imagen de prueba
   play.poster = TEST_IMAGE_URL;
 };
 
@@ -85,6 +94,7 @@ boton_video1.onclick = () => {
     play.src = video1.src;
     play.currentTime = video1.currentTime;
     play.play();
+    video1.play();
     play.poster=null;
 };
 
@@ -92,6 +102,7 @@ boton_video2.onclick = () => {
     play.src = video2.src;
     play.currentTime = video2.currentTime;
     play.play();
+    video2.play();
     play.poster=null;
 };
 
@@ -99,5 +110,37 @@ boton_video3.onclick = () => {
     play.src = video3.src;
     play.currentTime = video3.currentTime;
     play.play();
+    video3.play();
     play.poster=null;
+};
+pause1.onclick = () => {
+    video1.pause();
+}
+reproducir1.onclick = () => {
+    video1.play();
+}
+
+pause2.onclick = () => {
+    video2.pause();
+}
+reproducir2.onclick = () => {
+    video2.play();
+}
+
+pause3.onclick = () => {
+    video3.pause();
+}
+reproducir3.onclick = () => {
+    video3.play();
+}
+//Para tener los videos en bucle o no
+var bucle = document.getElementById("bucle");
+bucle.onclick = () => {
+  console.log("bucle");
+    video4.loop=true;
+};
+var nobucle = document.getElementById("nobucle");
+nobucle.onclick = () => {
+  console.log("No bucle");
+    video4.muted=false;
 };
