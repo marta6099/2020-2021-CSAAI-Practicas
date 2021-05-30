@@ -1,57 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" dir="ltr">
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Calculadora Casio Nea</title>
     <link rel="stylesheet" href="calculadora.css">
-
-    <script src="Prueba.js"></script>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <!-- Código Javascript -->
+    <script src="calculadora2.js" defer></script>
   </head>
-
-  <body onload="main();">
+  <!-- Punto de entrada al código: en cuanto se haga
+       cargado la página se llama a main() -->
+  <body onload= "main()">
     <div id="tamaño">
       <div id="display">
         <p id="display" value=""></p>
-      </div>
-
-
+      </div>     
+      
     <div class="Filas">
-      <input type="Button" id="7" value="7" class="boton">
-      <input type="Button" id="8" value="8" class="boton">
-      <input type="Button" id="9" value="9" class="boton">
-      <input type="Button" id="resta" value="-" class="boton">
+      <input class="digito" value="7" id="7" type="button">
+      <input class="digito" value="8" id="8" type="button">
+      <input class="digito" value="9" id="9" type="button">
+      <input type="Button" id="resta" value="-" class="operacion">
     </div>
 
     <div class="Filas">
-      <input type="Button" id="4" value="4" class="boton">
-      <input type="Button" id="5" value="5" class="boton">
-      <input type="Button" id="6" value="6" class="boton">
-      <input type="Button" id="multiplicacion" value="*" class="boton">
+      <input class="digito" value="4" id="4" type="button">
+      <input class="digito" value="5" id="5" type="button">
+      <input class="digito" value="6" id="6" type="button">
+      <input type="Button" id="multiplicacion" value="*" class="operacion">
     </div>
 
     <div class="Filas">
-      <input type="Button" id="1" value="1" class="boton">
-      <input type="Button" id="2" value="2" class="boton">
-      <input type="Button" id="3" value="3" class="boton">
-      <input type="Button" id="division" value="/" class="boton">
+      <input class="digito" value="1" id="1" type="button">
+      <input class="digito" value="2" id="2" type="button">
+      <input class="digito" value="3" id="3" type="button">
+      <input type="Button" id="division" value="/" class="operacion">
     </div>
 
     <div class="Filas">
-      <input type="Button" id="." value="." class="boton">
-      <input type="Button" id="0" value="0" class="boton">
-      <input type="Button" id="suma" value="+" class="boton">
-      <input type="Button" id="resultado" value="=" class="boton">
+      <input type="Button" id="punto" value="." class="boton">
+      <input type="Button" id="0" value="0" class="digito">
+      <input type="Button" id="suma" value="+" class="operacion">
+      <input type="Button" id="igual" value="=" class="boton">
     </div>
     <div class="Filas">
-      <input type="Button" id="AC" value="AC" class="boton">
-      <input type="Button" id="DEL" value="DEL" class="boton">
-      <input type="Button" id="%" value="%" class="boton">
-      <input type="Button" id="√" value="√" class="boton">
+      <input type="Button" id="clear" value="AC" class="boton">
+      <input type="Button" id="borrar" value="DEL" class="boton">
+      <button class="digito" value="*0.01">%</button>
+      <button class="operacion" value="**">^</button>
       
     </div>
-
-  </div>
+    <!-- <div class="Filas">
+      <button class="digito" value="sqrt">%</button>
+      <input type="Button" id="√" value="√" class="raiz">
+    </div> -->
+      </div>
+    </div>
   </body>
 </html>
